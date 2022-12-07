@@ -20,7 +20,7 @@ function preload() {
   maleHair1 = loadImage('maleHair1.png');
   maleEyes1 = loadImage('maleEyes1.png');
   malePupils = loadImage('malePupils.png');
-  maleEyebrows = loadImage('maleEyebrows.png');
+  maleBrow1 = loadImage('maleEyebrows.png');
   maleNose = loadImage('maleNose.png');
   maleMouth = loadImage('maleMouth.png');
   
@@ -30,6 +30,11 @@ function preload() {
    maleEyes1Display = loadImage('maleEyes1.png');
   maleEyes2 = loadImage('maleEyes2.png');
   maleEyes2Display = loadImage('maleEyes2.png');
+  
+  
+ maleBrow1Display = loadImage('maleEyebrows.png');
+  maleBrow2 = loadImage('maleBrow2.png');
+  maleBrow2Display = loadImage('maleBrow2.png');
   
   
   maleHair1Display = loadImage('maleHair1.png')
@@ -63,7 +68,7 @@ maleTop1 = loadImage('maleTop1.png');
   femaleHair1 = loadImage('femaleHair1.png');
   femaleEyes1 = loadImage('femaleEyes1.png');
   femalePupils = loadImage('femalePupils.png');
-  femaleEyebrows = loadImage('femaleEyebrows.png');
+  femaleBrow1 = loadImage('femaleEyebrows.png');
   femaleNose = loadImage('femaleNose.png');
   femaleMouth = loadImage('femaleMouth.png');
   femaleTop1 = loadImage('femaleTop1.png');
@@ -75,6 +80,11 @@ maleTop1 = loadImage('maleTop1.png');
    femaleEyes1Display = loadImage('femaleEyes1.png');
   femaleEyes2 = loadImage('femaleEyes2.png');
   femaleEyes2Display = loadImage('femaleEyes2.png');
+  
+  
+   femaleBrow1Display = loadImage('femaleEyebrows.png');
+  femaleBrow2 = loadImage('femaleBrow2.png');
+  femaleBrow2Display = loadImage('femaleBrow2.png');
   
   
   
@@ -112,7 +122,7 @@ function setup() {
   maleCharacter[2] = maleHair1;
   maleCharacter[3] = maleEyes1;
   maleCharacter[4] = malePupils;
-  maleCharacter[5] = maleEyebrows;
+  maleCharacter[5] = maleBrow1;
   maleCharacter[6] = maleNose;
   maleCharacter[7] = maleMouth;
   maleCharacter[8] = maleTop1;
@@ -123,7 +133,7 @@ function setup() {
   femaleCharacter[2] = femaleHair1;
   femaleCharacter[3] = femaleEyes1;
   femaleCharacter[4] = femalePupils;
-  femaleCharacter[5] = femaleEyebrows;
+  femaleCharacter[5] = femaleBrow1;
   femaleCharacter[6] = femaleNose;
   femaleCharacter[7] = femaleMouth;
   femaleCharacter[8] = femaleTop1;
@@ -333,6 +343,28 @@ function mouseClicked() {
    
     }
   
+  // if on brows
+  if(pages[3]) {
+    //if select brow 2
+    if (mouseX > 270 && mouseX < 370 && mouseY > 140 && mouseY < 190){
+      if (male) {
+        maleCharacter[5] = maleBrow2;
+      } else {
+        femaleCharacter[5] = femaleBrow2;
+      }
+    }
+      if(mouseX > 130 && mouseX < 230 && mouseY > 140 && mouseY < 190) {
+        if(male) {
+          maleCharacter[5] = maleBrow1;
+        } else {
+        femaleCharacter[5] = femaleBrow1;
+      }
+      }
+      displayCharacter();
+      eyebrows();
+   
+    }
+  
   // if on hair
   if(pages[6]) {
     //if select hair 2
@@ -455,6 +487,7 @@ function bodyType() {
   textSize(20);
   fill(98, 94, 128);
   text(optionStrs[1], 30, 150);
+  
 }
 function eyes() {
  
@@ -506,6 +539,28 @@ function eyebrows() {
   textSize(20);
   fill(98, 94, 128);
   text(optionStrs[3], 30, 210);
+  
+  
+   rect(130, 140, 100, 40);
+  rect(270, 140, 100, 40);
+  
+  if(male) {
+    maleBrow1Display.resize(660, 860);
+    maleBrow2Display.resize(660, 860);
+    image(maleBrow1Display, -140, 0);
+    image(maleBrow2Display, 0, 0);
+  
+   } else {
+    femaleBrow1Display.resize(660, 860);
+    femaleBrow2Display.resize(660, 860);
+    image(femaleBrow1Display, -140, 50);
+    image(femaleBrow1Display, -140, 50);
+    image(femaleBrow2Display, 0, 50);
+    
+  }
+  
+  
+  
 }
 function nose() {
  
@@ -671,3 +726,4 @@ function options() {
   
  
 }
+
