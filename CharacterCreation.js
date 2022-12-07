@@ -299,20 +299,16 @@ function mouseClicked() {
   if(pages[0]) {
     //if select skin 2
     if (mouseX > 270 && mouseX < 370 && mouseY > 140 && mouseY < 250){
-      if (male) {
-        tint(0, 153, 204);
+//       if (male) {
+//         tint(0, 153, 204);
         
   
-      } else {
-        tint(0, 153, 204);
-      }
+//       } else {
+//         tint(0, 153, 204);
+//       }
     }
       if(mouseX > 130 && mouseX < 230 && mouseY > 140 && mouseY < 250) {
-        if(male) {
-          maleCharacter[2] = maleHair1;
-        } else {
-        femaleCharacter[2] = femaleHair1;
-      }
+        
       }
       displayCharacter();
       skinColor();
@@ -726,4 +722,3 @@ function options() {
   
  
 }
-
