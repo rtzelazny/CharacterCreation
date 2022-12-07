@@ -25,9 +25,20 @@ function preload() {
   maleMouth = loadImage('maleMouth.png');
   
   
+  
+  malePupilsDisplay = loadImage('malePupils.png');
+   maleEyes1Display = loadImage('maleEyes1.png');
+  maleEyes2 = loadImage('maleEyes2.png');
+  maleEyes2Display = loadImage('maleEyes2.png');
+  
+  
   maleHair1Display = loadImage('maleHair1.png')
   maleHair2 = loadImage('maleHair2.png');
   maleHair2Display = loadImage('maleHair2.png');
+  
+  
+  
+  
   
   
   
@@ -96,7 +107,7 @@ function setup() {
   createCanvas(800, 600);
 
 
-maleCharacter[0] = maleBody;
+  maleCharacter[0] = maleBody;
   maleCharacter[1] = maleHead;
   maleCharacter[2] = maleHair1;
   maleCharacter[3] = maleEyes1;
@@ -300,6 +311,28 @@ function mouseClicked() {
   
   
   
+  // if on eyes
+  if(pages[2]) {
+    //if select eyes 2
+    if (mouseX > 270 && mouseX < 370 && mouseY > 140 && mouseY < 190){
+      if (male) {
+        maleCharacter[3] = maleEyes2;
+      } else {
+        femaleCharacter[3] = femaleEyes2;
+      }
+    }
+      if(mouseX > 130 && mouseX < 230 && mouseY > 140 && mouseY < 190) {
+        if(male) {
+          maleCharacter[3] = maleEyes1;
+        } else {
+        femaleCharacter[3] = femaleEyes1;
+      }
+      }
+      displayCharacter();
+      eyes();
+   
+    }
+  
   // if on hair
   if(pages[6]) {
     //if select hair 2
@@ -373,8 +406,8 @@ function mouseClicked() {
   if (pages[1]) {
     if(mouseX > 100 && mouseX < 380 && mouseY > 152 && mouseY <157) {
     while(mouseX > 100 && mouseX < 380) {
-      val = slider.value();
-      print(val);
+      // val = slider.value();
+      // print(val);
     }
   }
     }
@@ -434,25 +467,29 @@ function eyes() {
   fill(98, 94, 128);
   text(optionStrs[2], 30, 180);
   
-  rect(130, 140, 100, 110);
-  rect(270, 140, 100, 110);
+  rect(130, 140, 100, 40);
+  rect(270, 140, 100, 40);
   
-//   if(male) {
-//     maleHair1Display.resize(360, 560);
-//     maleHair2Display.resize(360, 560);
+  if(male) {
+    maleEyes1Display.resize(660, 660);
+    malePupilsDisplay.resize(660, 660);
+    maleEyes2Display.resize(660, 660);
     
-//     image(maleHair1Display, 0, 90);
-//     image(maleHair2Display, 140, 90);
-  if (female) {
+    
+    image(maleEyes1Display, -140, 40);
+    image(malePupilsDisplay, -140, 40);
+    image(maleEyes2Display, 0, 40);
+    image(malePupilsDisplay, 0, 40);
+   }else {
     femaleEyes1Display.resize(660, 860);
     femaleEyes2Display.resize(660, 860);
     femalePupilsDisplay.resize(660, 860);
     
     
-    image(femaleEyes1Display, -100, 120);
-    image(femalePupilsDisplay, -100, 120);
-    image(femaleEyes2Display, 140, 120);
-    image(femalePupilsDisplay, 140, 120);
+    image(femaleEyes1Display, -140, 50);
+    image(femalePupilsDisplay, -140, 50);
+    image(femaleEyes2Display, 0, 50);
+    image(femalePupilsDisplay, 0, 50);
     
   }
   
