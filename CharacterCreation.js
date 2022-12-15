@@ -1127,7 +1127,8 @@ function mouseClicked() {
         femaleCharacter[8] = femaleBottom1;
       }
       }
-	  if(mouseX > 130 && mouseX < 230 && mouseY > 280 && mouseY < 390) {
+	  //rect(130, 340, 100, 150);
+	  if(mouseX > 130 && mouseX < 230 && mouseY >340 && mouseY < 490) {
         if(male) {
           maleCharacter[8] = maleBottom3;
         } else {
@@ -1691,6 +1692,7 @@ function tops() {
   rect(270, 140, 100, 110);
   rect(130, 280, 100, 110);
   
+	noTint();
   if(male) {
     maleTop1Display.resize(160, 260);
     maleTop2Display.resize(160, 260);
@@ -1725,8 +1727,8 @@ function bottom() {
   
   rect(130, 130, 100, 150);
   rect(270, 130, 100, 150);
- rect(130, 280, 100, 180);
-  
+ rect(130, 340, 100, 150);
+  noTint();
   if(male) {
     maleBottom1Display.resize(160, 260);
     maleBottom2Display.resize(160, 260);
@@ -1734,7 +1736,7 @@ function bottom() {
     
     image(maleBottom1Display, 100, 20);
     image(maleBottom2Display, 240, 20);
-	image(maleBottom3Display, 90, 235);
+	image(maleBottom3Display, 100, 235);
   } else {
     femaleBottom1Display.resize(160, 260);
     femaleBottom2Display.resize(160, 260);
@@ -1742,7 +1744,7 @@ function bottom() {
     
     image(femaleBottom1Display, 90, 40);
     image(femaleBottom2Display, 230, 40);
-	image(femaleBottom3Display, 90, 235);
+	image(femaleBottom3Display, 90, 255);
   }
   
 }
